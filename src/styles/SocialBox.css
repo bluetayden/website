@@ -1,0 +1,15 @@
+.social-box {
+    position: relative;
+    text-align: center;
+}
+
+.box-image {
+    width: 100%;
+}
+
+.box-link {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
