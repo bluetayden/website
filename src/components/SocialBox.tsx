@@ -1,8 +1,10 @@
-import { useState, useEffect, useRef, ReactElement } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { getRandIndex } from "../utils/RNG";
-import { getDefaultBoxIndex, getSocialLink, getSocialIcon } from "../utils/SocialBoxHelpers"
+import { getDefaultBoxIndex, getSocialLink } from "../utils/SocialHelpers"
 import { Boxes } from "../assets";
+
+import SocialIcon from "./SocialIcon";
 
 import '../styles/SocialBox.css'
 
@@ -13,7 +15,6 @@ interface SocialBoxProps {
 const SocialBox = (props: SocialBoxProps) => {
     const defaultBoxIndex: number = getDefaultBoxIndex(props.name);
     const socialLink: string = getSocialLink(props.name);
-    const socialIcon: ReactElement = getSocialIcon(props.name);
 
     const animationTimerRef: { current: NodeJS.Timeout | null } = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
@@ -33,14 +34,14 @@ const SocialBox = (props: SocialBoxProps) => {
     }, [isHovered, boxIndex, defaultBoxIndex])
 
     return (
-        <div className="social-box" onMouseEnter={() => setIsHovered(true)}  onMouseLeave={() => setIsHovered(false)}>
+        <div className="social-box" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
             <a className="box-link" href={socialLink} target="_blank" rel="noreferrer" >
-                <div className="box-image">
+                <div className="box-outline">
                     <img src={Boxes[boxIndex]} alt={props.name} />
                 </div>
 
                 <div className="box-icon">
-                    {socialIcon}
+                    <SocialIcon name={props.name} isHovered={isHovered} />
                 </div>
             </a>
         </div>

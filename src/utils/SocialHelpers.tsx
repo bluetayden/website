@@ -5,11 +5,6 @@ import YouTube from "@mui/icons-material/YouTube"
 import GitHub from "@mui/icons-material/GitHub";
 import Error from '@mui/icons-material/Error';
 
-const DEFAULT_ICON_STYLE = {
-    color: "black",
-    fontSize: 50
-}
-
 export function getDefaultBoxIndex(name: string): number {
     switch (name) {
         case 'twitter':
@@ -47,26 +42,44 @@ export function getSocialLink(name: string): string {
     return socialLink;
 }
 
-export function getSocialIcon(name: string): ReactElement {
+/** Requires a paramater for fontSize as styling the returned element is difficult */
+export function getSocialIconSvg(name: string, size: number|string): ReactElement {
+    const style = {
+        fontSize: size
+    }
+
     let icon: ReactElement;
 
     switch (name) {
         case 'twitter': {
-            icon = <TwitterIcon style={DEFAULT_ICON_STYLE} />;
+            icon = <TwitterIcon style={style}/>;
             break;
         }
         case 'youtube': {
-            icon = <YouTube style={DEFAULT_ICON_STYLE} />;
+            icon = <YouTube style={style}/>;
             break;
         }
         case 'github': {
-            icon = <GitHub style={DEFAULT_ICON_STYLE} />;
+            icon = <GitHub style={style}/>;
             break;
         }
         default: {
-            icon = <Error style={DEFAULT_ICON_STYLE} />;
+            icon = <Error style={style}/>;
         }
     }
 
     return icon;
+}
+
+export function getSocialIconHoverColour(name: string) : string {
+    switch(name) {
+        case 'twitter':
+            return 'cornflowerblue';
+        case 'youtube':
+            return 'red';
+        case 'github':
+            return "darkmagenta";
+        default:
+            return 'black';
+    }
 }
