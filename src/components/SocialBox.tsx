@@ -36,9 +36,7 @@ const SocialBox = (props: SocialBoxProps) => {
     return (
         <div className="social-box" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
             <a className="box-link" href={socialLink} target="_blank" rel="noreferrer" >
-                <div className="box-outline">
-                    <img src={Boxes[boxIndex]} alt={props.name} />
-                </div>
+                <img src={Boxes[boxIndex]} className="box-outline" alt={props.name} />
 
                 <div className="box-icon">
                     <SocialIcon name={props.name} isHovered={isHovered} />

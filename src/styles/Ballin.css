@@ -1,0 +1,18 @@
+.ballin-container {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 1vh;
+}
+
+.ballin-img {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+@media (min-width: 500px) {
+    .ballin-img {
+        width: 500px;
+        margin: auto;
+    }
+}

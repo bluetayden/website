@@ -8,6 +8,7 @@ const SocialLinks = () => {
             <SocialBox name="twitter" />
             <SocialBox name="youtube" />
             <SocialBox name="github" />
+            <SocialBox name="pixiv" />
         </div>
     )
 }

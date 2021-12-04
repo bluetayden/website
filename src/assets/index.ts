@@ -12,6 +12,8 @@ import Box_6 from "./socialbox_6.png";
 import Box_7 from "./socialbox_7.png";
 import Box_8 from "./socialbox_8.png";
 
+import BallinDotPng from "./ballin.png";
+
 export const Logos = [
     Logo_1,
     Logo_2,
@@ -29,3 +31,5 @@ export const Boxes = [
     Box_7,
     Box_8
 ]
+
+export default BallinDotPng;
