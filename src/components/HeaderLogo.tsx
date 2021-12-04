@@ -1,25 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
+
+import { getRandIndex } from '../utils/RNG';
 import { Logos } from "../assets";
 
 const HeaderLogo = () => {
     const animationTimerRef: { current: NodeJS.Timeout | null } = useRef(null);
-    const [isAnimated, setIsAnimated] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     const [logoIndex, setLogoIndex] = useState(0);
 
     useEffect(() => {
-        function getRandLogoIndex(): number {
-            let index: number = Logos.length;
-
-            while (index === Logos.length || index === logoIndex) {
-                index = Math.floor(Math.random() * Logos.length);
-            }
-
-            return index;
-        }
-
-        // If is animated, cycle logo images otherwise stop and return to Logos[0]
-        if (isAnimated) {
-            animationTimerRef.current = setInterval(() => { setLogoIndex(getRandLogoIndex) }, 100);
+        // If logo is hovered, cycle logo images otherwise stop and return to Logos[0]
+        if (isHovered) {
+            animationTimerRef.current = setInterval(() => { setLogoIndex(getRandIndex(logoIndex, Logos.length)) }, 100);
         } else {
             setLogoIndex(0);
             clearInterval(animationTimerRef.current as NodeJS.Timeout);
@@ -27,11 +19,15 @@ const HeaderLogo = () => {
 
         // Clears the interval for the next useEffect call (prevents stacking of intervals)
         return () => clearInterval(animationTimerRef.current as NodeJS.Timeout);
-    }, [isAnimated, logoIndex])
+    }, [isHovered, logoIndex])
 
     return (
         <div className="header-logo">
-            <img src={Logos[logoIndex]} alt="header-logo" onMouseOver={() => setIsAnimated(true)} onMouseOut={() => setIsAnimated(false)} />
+            <a href="/">    
+                <img src={Logos[logoIndex]} alt="header-logo" 
+                                            onMouseOver={() => setIsHovered(true)} 
+                                            onMouseOut={() => setIsHovered(false)} />
+            </a>
         </div>
     );
 }

@@ -7,6 +7,10 @@ import Box_1 from "./socialbox_1.png";
 import Box_2 from "./socialbox_2.png";
 import Box_3 from "./socialbox_3.png";
 import Box_4 from "./socialbox_4.png";
+import Box_5 from "./socialbox_5.png";
+import Box_6 from "./socialbox_6.png";
+import Box_7 from "./socialbox_7.png";
+import Box_8 from "./socialbox_8.png";
 
 export const Logos = [
     Logo_1,
@@ -19,5 +23,9 @@ export const Boxes = [
     Box_1,
     Box_2,
     Box_3,
-    Box_4
+    Box_4,
+    Box_5,
+    Box_6,
+    Box_7,
+    Box_8
 ]

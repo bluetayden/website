@@ -5,57 +5,66 @@ import YouTube from "@mui/icons-material/YouTube"
 import GitHub from "@mui/icons-material/GitHub";
 import Error from '@mui/icons-material/Error';
 
-export function getSocialLink(name: string): ReactElement {
-    let socialURL:string;
+const DEFAULT_ICON_STYLE = {
+    color: "black",
+    fontSize: 50
+}
+
+export function getDefaultBoxIndex(name: string): number {
+    switch (name) {
+        case 'twitter':
+            return 1;
+        case 'youtube':
+            return 2;
+        case 'github':
+            return 3;
+        default:
+            return 0;
+    }
+}
+
+export function getSocialLink(name: string): string {
+    let socialLink: string;
 
     switch (name) {
         case 'twitter': {
-            socialURL = "https://twitter.com/bluetayden";
+            socialLink = "https://twitter.com/bluetayden";
             break;
         }
         case 'youtube': {
-            socialURL = "https://www.youtube.com/channel/UCMN6vTv8r_2yu3b5_NcYrgg";
+            socialLink = "https://www.youtube.com/channel/UCMN6vTv8r_2yu3b5_NcYrgg";
             break;
         }
         case 'github': {
-            socialURL = "https://github.com/bluetayden";
+            socialLink = "https://github.com/bluetayden";
             break;
         }
         default: {
-            socialURL = "#currentPageLink";
+            socialLink = "/";
         }
     }
 
-    return (
-        <a href={socialURL} target="_blank" rel="noreferrer">
-            {getSocialIcon(name)}
-        </a>
-    )
+    return socialLink;
 }
 
-function getSocialIcon(name?: string) : ReactElement {
-    const style = {
-        fontSize: 48,
-        color: "black"
-    };
-
+export function getSocialIcon(name: string): ReactElement {
     let icon: ReactElement;
 
     switch (name) {
         case 'twitter': {
-            icon =  <TwitterIcon style={style}/>;
+            icon = <TwitterIcon style={DEFAULT_ICON_STYLE} />;
             break;
         }
         case 'youtube': {
-            icon = <YouTube style={style}/>;
+            icon = <YouTube style={DEFAULT_ICON_STYLE} />;
             break;
         }
         case 'github': {
-            icon = <GitHub style={style} />;
+            icon = <GitHub style={DEFAULT_ICON_STYLE} />;
             break;
         }
         default: {
-            icon = <Error style={style}/>;
+            icon = <Error style={DEFAULT_ICON_STYLE} />;
         }
     }
 
