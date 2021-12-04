@@ -18,7 +18,8 @@ const SocialIcon = (props: SocialIconProps) => {
 
     const hoverStyle = {
         transition: "color 0.2s",
-        color: hoverColour
+        color: hoverColour,
+        backgroundColor: "transparent"
     }
 
     return (

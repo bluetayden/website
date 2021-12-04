@@ -24,10 +24,11 @@ const HeaderLogo = () => {
     }, [isHovered, logoIndex])
 
     return (
-        <a href="/" className="header-logo-container">
-                <img src={Logos[logoIndex]} className="header-logo-img" alt="header-logo" 
-                                            onMouseOver={() => setIsHovered(true)} 
-                                            onMouseOut={() => setIsHovered(false)} />
+        <a href="/" className="header-logo-container"
+            onMouseOver={() => setIsHovered(true)}
+            onMouseOut={() => setIsHovered(false)}
+        >
+            <img src={Logos[logoIndex]} className="header-logo-img" alt="header-logo" />
         </a>
     );
 }

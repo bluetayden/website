@@ -10,9 +10,9 @@
     cursor: pointer;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 400px) {
     .ballin-img {
-        width: 500px;
+        width: 400px;
         margin: auto;
     }
 }

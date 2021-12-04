@@ -3,10 +3,6 @@
     flex-direction: column;
 }
 
-.header-logo-img {
-    flex-grow: 1;
-}
-
 @media (min-width: 390px) {
     .header-logo-img {
         width: 390px;
