@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { getRandIndex } from '../utils/RNG';
 import { Logos } from "../assets";
 
+import "../styles/HeaderLogo.css"
+
 const HeaderLogo = () => {
     const animationTimerRef: { current: NodeJS.Timeout | null } = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
