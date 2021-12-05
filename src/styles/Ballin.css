@@ -16,3 +16,11 @@
         margin: auto;
     }
 }
+
+.ballin-text {
+    font-family: 'Press Start 2P';
+    text-align: center;
+    overflow-wrap: break-word;
+
+    padding: 3px;
+}
