@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
 import { IconButton } from "@mui/material";
 
-import { getSocialIconSvg, getSocialIconHoverColour } from "../utils/SocialHelpers";
+import { LinkName, getSocialIconSvg, getSocialIconHoverColour } from "../utils/SocialHelpers";
 
 interface SocialIconProps {
-    name: string,
+    name: LinkName,
     isHovered: boolean
 }
 

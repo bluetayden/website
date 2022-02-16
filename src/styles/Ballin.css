@@ -5,6 +5,14 @@
     padding-top: 1vh;
 }
 
+.ballin-text {
+    font-family: 'Press Start 2P';
+    text-align: center;
+    overflow-wrap: break-word;
+
+    padding: 3px;
+}
+
 .ballin-img {
     flex-grow: 1;
     cursor: pointer;
@@ -17,10 +25,7 @@
     }
 }
 
-.ballin-text {
-    font-family: 'Press Start 2P';
-    text-align: center;
-    overflow-wrap: break-word;
-
-    padding: 3px;
+.ballin-confetti {
+    position: fixed;
+    top: 0;
 }

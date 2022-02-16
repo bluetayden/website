@@ -3,37 +3,39 @@ import { ReactElement } from "react";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTube from "@mui/icons-material/YouTube"
 import GitHub from "@mui/icons-material/GitHub";
-import { SiPixiv } from "react-icons/si"
+import { SiItchdotio } from "react-icons/si"
 import Error from '@mui/icons-material/Error';
 
-export function getDefaultBoxIndex(name: string): number {
+export type LinkName = 'Twitter' | 'YouTube' | 'GitHub' | 'Itch';
+
+export function getDefaultBoxIndex(name: LinkName): number {
     switch (name) {
-        case 'twitter':
+        case 'Twitter':
             return 1;
-        case 'youtube':
+        case 'YouTube':
             return 2;
-        case 'github':
+        case 'GitHub':
             return 3;
-        case 'pixiv':
+        case 'Itch':
             return 4;
         default:
             return 0;
     }
 }
 
-export function getSocialLink(name: string): string {
+export function getSocialLink(name: LinkName): string {
     switch (name) {
-        case 'twitter': {
+        case 'Twitter': {
             return "https://twitter.com/bluetayden";
         }
-        case 'youtube': {
+        case 'YouTube': {
             return "https://www.youtube.com/channel/UCMN6vTv8r_2yu3b5_NcYrgg";
         }
-        case 'github': {
+        case 'GitHub': {
             return "https://github.com/bluetayden";
         }
-        case 'pixiv': {
-            return "https://www.pixiv.net/users/70082636";
+        case 'Itch': {
+            return "https://bluetayden.itch.io/";
         }
         default: {
             return "/";
@@ -42,25 +44,25 @@ export function getSocialLink(name: string): string {
 }
 
 /** Requires a paramater for fontSize as styling the returned element is difficult */
-export function getSocialIconSvg(name: string, size: number): ReactElement {
+export function getSocialIconSvg(name: LinkName, size: number): ReactElement {
     const style = {
         fontSize: size
     }
 
     switch (name) {
-        case 'twitter': {
+        case 'Twitter': {
             return <TwitterIcon style={style} />;
         }
-        case 'youtube': {
+        case 'YouTube': {
             style.fontSize = style.fontSize + 5;
             return <YouTube style={style} />;
         }
-        case 'github': {
+        case 'GitHub': {
             return <GitHub style={style} />;
         }
-        case 'pixiv': {
+        case 'Itch': {
             style.fontSize = style.fontSize - 8;
-            return <SiPixiv style={style} />
+            return <SiItchdotio style={style} />
         }
         default: {
             return <Error style={style} />;
@@ -68,16 +70,16 @@ export function getSocialIconSvg(name: string, size: number): ReactElement {
     }
 }
 
-export function getSocialIconHoverColour(name: string): string {
+export function getSocialIconHoverColour(name: LinkName): string {
     switch (name) {
-        case 'twitter':
+        case 'Twitter':
             return '#1D9BF0';
-        case 'youtube':
+        case 'YouTube':
             return '#FF0000';
-        case 'github':
+        case 'GitHub':
             return "#800080";
-        case 'pixiv':
-            return "#0096FA";
+        case 'Itch':
+            return "#FA5C5C";
         default:
             return 'black';
     }

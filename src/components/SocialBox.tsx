@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import { getRandIndex } from "../utils/RNG";
-import { getDefaultBoxIndex, getSocialLink } from "../utils/SocialHelpers"
+import { LinkName, getDefaultBoxIndex, getSocialLink } from "../utils/SocialHelpers"
 import { Boxes } from "../assets";
 
 import SocialIcon from "./SocialIcon";
@@ -9,7 +9,7 @@ import SocialIcon from "./SocialIcon";
 import '../styles/SocialBox.css'
 
 interface SocialBoxProps {
-    name: string
+    name: LinkName
 }
 
 const SocialBox = (props: SocialBoxProps) => {

@@ -9,7 +9,7 @@ import '../styles/Ballin.css'
 const Ballin = () => {
     const [showConfetti, setShowConfetti] = useState(false);
     const [ballinCount, setBallinCount] = useState(0);
-    const ballinTextTimerRef: { current: NodeJS.Timeout | null } = useRef(null);
+    const ballinClickTimerRef: { current: NodeJS.Timeout | null } = useRef(null);
     const [showBallinText, setShowBallinText] = useState(false);
 
     const { width, height } = useWindowSize()
@@ -26,11 +26,11 @@ const Ballin = () => {
     function handleShowBallinText() {
         setShowBallinText(true);
 
-        if (ballinTextTimerRef.current === null) {
-            ballinTextTimerRef.current = setTimeout(() => {setShowBallinText(false); ballinTextTimerRef.current = null}, 4000)
+        if (ballinClickTimerRef.current === null) {
+            ballinClickTimerRef.current = setTimeout(() => { setShowBallinText(false); ballinClickTimerRef.current = null }, 4000)
         } else {
-            clearTimeout(ballinTextTimerRef.current);
-            ballinTextTimerRef.current = setTimeout(() => {setShowBallinText(false); ballinTextTimerRef.current = null}, 4000)
+            clearTimeout(ballinClickTimerRef.current);
+            ballinClickTimerRef.current = setTimeout(() => { setShowBallinText(false); ballinClickTimerRef.current = null }, 4000)
         }
     }
 
@@ -44,10 +44,12 @@ const Ballin = () => {
             <img src={BallinDotPng} className="ballin-img" alt="ballin"
                 onClick={() => handleBallinClick()} />
 
-            {showConfetti &&
-                <Confetti width={width} height={height}
-                    numberOfPieces={200} recycle={false} initialVelocityY={{ min: 5, max: 5 }}
-                    onConfettiComplete={() => setShowConfetti(false)} />}
+            <div className="ballin-confetti">
+                {showConfetti &&
+                    <Confetti width={width} height={height}
+                        numberOfPieces={200} recycle={false} initialVelocityY={{ min: 5, max: 5 }}
+                        onConfettiComplete={() => setShowConfetti(false)} />}
+            </div>
         </div>
     )
 }
