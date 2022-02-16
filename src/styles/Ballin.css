@@ -10,7 +10,8 @@
     text-align: center;
     overflow-wrap: break-word;
 
-    padding: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .ballin-img {
@@ -18,7 +19,7 @@
     cursor: pointer;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 430px) {
     .ballin-img {
         width: 400px;
         margin: auto;

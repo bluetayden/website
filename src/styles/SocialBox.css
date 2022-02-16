@@ -7,15 +7,15 @@
     width: 100%;
 }
 
+@media (max-width: 400px) {
+    .box-outline{
+        flex-grow: 1;
+    }
+}
+
 .box-icon {
     position:absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-@media (max-width: 400px) {
-    .box-outline{
-        flex-grow: 1;
-    }
 }

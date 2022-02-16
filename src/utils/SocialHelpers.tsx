@@ -54,14 +54,14 @@ export function getSocialIconSvg(name: LinkName, size: number): ReactElement {
             return <TwitterIcon style={style} />;
         }
         case 'YouTube': {
-            style.fontSize = style.fontSize + 5;
+            style.fontSize += 5;
             return <YouTube style={style} />;
         }
         case 'GitHub': {
             return <GitHub style={style} />;
         }
         case 'Itch': {
-            style.fontSize = style.fontSize - 8;
+            style.fontSize -= 8;
             return <SiItchdotio style={style} />
         }
         default: {
